@@ -1,0 +1,77 @@
+<div class="max-w-7xl mx-auto mt-8 p-6">
+
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold">Employee List</h1>
+
+    <button
+      class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+      routerLink="/add-employee">
+      Add Employee
+    </button>
+  </div>
+
+  <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+
+    <table class="w-full">
+
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="p-4 text-left">ID</th>
+          <th class="p-4 text-left">Name</th>
+          <th class="p-4 text-left">Email</th>
+          <th class="p-4 text-left">Phone</th>
+          <th class="p-4 text-left">Department</th>
+          <th class="p-4 text-left">Designation</th>
+          <th class="p-4 text-left">Salary</th>
+          <th class="p-4 text-left">Joining Date</th>
+          <th class="p-4 text-center">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr
+          *ngFor="let employee of employees"
+          class="border-b hover:bg-gray-50">
+
+          <td class="p-4">{{ employee.id }}</td>
+          <td class="p-4">{{ employee.name }}</td>
+          <td class="p-4">{{ employee.email }}</td>
+          <td class="p-4">{{ employee.phone }}</td>
+          <td class="p-4">{{ employee.department }}</td>
+          <td class="p-4">{{ employee.designation }}</td>
+          <td class="p-4">{{ employee.salary }}</td>
+          <td class="p-4">{{ employee.joiningDate }}</td>
+
+          <td class="p-4">
+            <div class="flex gap-2 justify-center">
+
+              <button
+              (click)="view(employee.id!)"
+                class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+                View
+              </button>
+
+              <button
+                class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600" (click)="Edit(employee.id!)">
+                Edit
+              </button>
+
+              <button
+              (click)="deleteEmployee(employee.id!)"
+                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600" >
+                Delete
+              </button>
+
+            </div>
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

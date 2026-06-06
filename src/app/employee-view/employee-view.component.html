@@ -1,0 +1,26 @@
+<div class="flex justify-center items-center h-screen bg-sky-800">
+  <div
+    *ngIf="employee"
+    class="w-80 p-8 rounded-2xl bg-white/20 backdrop-blur-lg border border-white/30 shadow-2xl text-white"
+  >
+    <h2 class="mb-5 text-center text-2xl font-extrabold">Employee Details</h2>
+
+    <div class="flex flex-col gap-5">
+      <p><strong>Name:</strong> {{ employee.name }}</p>
+
+      <p><strong>Email:</strong> {{ employee.email }}</p>
+
+      <p><strong>Phone:</strong> {{ employee.phone }}</p>
+
+      <p><strong>Department:</strong> {{ employee.department }}</p>
+
+      <p><strong>Designation:</strong> {{ employee.designation }}</p>
+
+      <p><strong>Salary:</strong> {{ employee.salary }}</p>
+
+      <p><strong>Joining Date:</strong> {{ employee.joiningDate }}</p>
+
+      <p><strong>Address:</strong> {{ employee.address }}</p>
+    </div>
+  </div>
+</div>
