@@ -18,7 +18,7 @@ export interface Employee {
 })
 export class EmployeeService {
 
-  private apiUrl = 'http://localhost:8085/employee';
+  private apiUrl = 'https://employeemanagementbackend-production-27ed.up.railway.app/employee';
 
   constructor(private http: HttpClient) { }
 
