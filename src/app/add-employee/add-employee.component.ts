@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
@@ -22,6 +22,7 @@ export class AddEmployeeComponent implements OnInit {
 
   employeeId!:number;
   constructor(private employeeService:EmployeeService,
+    private router:Router,
     private route:ActivatedRoute
   ) { }
   employeeForm!:FormGroup;
@@ -52,11 +53,13 @@ onSubmit(){
   if(this.employeeId){
     this.employeeService.updateEmployee(this.employeeId,this.employeeForm.value).subscribe(()=>{
       alert("Update Successfully")
+      this.router.navigate(['/employee']);
     })
   }else{
      this.employeeService.addEmployee(this.employeeForm.value).subscribe((res)=>{
     console.log(res);
-    this.employeeForm.reset()
+    // this.employeeForm.reset();
+    this.router.navigate(['/employee'])
   })
   }
  
