@@ -6,7 +6,7 @@
     class="w-full max-w-4xl bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-8 grid grid-cols-1 lg:grid-cols-2 gap-5"
   >
 
-   
+    <!-- Heading -->
 
     <div class="col-span-1 md:col-span-2 text-center mb-4">
 
@@ -20,7 +20,7 @@
 
     </div>
 
-  
+    <!-- Name -->
 
     <div>
 
@@ -35,9 +35,34 @@
         class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
       />
 
+      <div *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched">
+
+        <small
+          *ngIf="employeeForm.get('name')?.errors?.['required']"
+          class="text-red-500"
+        >
+          Name is Required
+        </small>
+
+        <small
+          *ngIf="employeeForm.get('name')?.errors?.['minlength']"
+          class="text-red-500"
+        >
+          Minimum 3 characters required
+        </small>
+
+        <small
+          *ngIf="employeeForm.get('name')?.errors?.['pattern']"
+          class="text-red-500"
+        >
+          Only letters allowed
+        </small>
+
+      </div>
+
     </div>
 
-  
+    <!-- Email -->
 
     <div>
 
@@ -52,9 +77,27 @@
         class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
       />
 
+      <div *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched">
+
+        <small
+          *ngIf="employeeForm.get('email')?.errors?.['required']"
+          class="text-red-500"
+        >
+          Email is Required
+        </small>
+
+        <small
+          *ngIf="employeeForm.get('email')?.errors?.['email']"
+          class="text-red-500"
+        >
+          Invalid Email Format
+        </small>
+
+      </div>
+
     </div>
 
-  
+    <!-- Phone -->
 
     <div>
 
@@ -69,9 +112,27 @@
         class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
       />
 
+      <div *ngIf="employeeForm.get('phone')?.invalid && employeeForm.get('phone')?.touched">
+
+        <small
+          *ngIf="employeeForm.get('phone')?.errors?.['required']"
+          class="text-red-500"
+        >
+          Phone Number is Required
+        </small>
+
+        <small
+          *ngIf="employeeForm.get('phone')?.errors?.['pattern']"
+          class="text-red-500"
+        >
+          Must be 10 digits
+        </small>
+
+      </div>
+
     </div>
 
- 
+    <!-- Department -->
 
     <div>
 
@@ -86,9 +147,20 @@
         class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
       />
 
+      <div *ngIf="employeeForm.get('department')?.invalid && employeeForm.get('department')?.touched">
+
+        <small
+          *ngIf="employeeForm.get('department')?.errors?.['required']"
+          class="text-red-500"
+        >
+          Department is Required
+        </small>
+
+      </div>
+
     </div>
 
-
+    <!-- Designation -->
 
     <div>
 
@@ -103,9 +175,20 @@
         class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
       />
 
+      <div *ngIf="employeeForm.get('designation')?.invalid && employeeForm.get('designation')?.touched">
+
+        <small
+          *ngIf="employeeForm.get('designation')?.errors?.['required']"
+          class="text-red-500"
+        >
+          Designation is Required
+        </small>
+
+      </div>
+
     </div>
 
-    
+    <!-- Salary -->
 
     <div>
 
@@ -120,9 +203,27 @@
         class="w-full bg-white/10 border border-white/20 text-emerald-300 placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
       />
 
+      <div *ngIf="employeeForm.get('salary')?.invalid && employeeForm.get('salary')?.touched">
+
+        <small
+          *ngIf="employeeForm.get('salary')?.errors?.['required']"
+          class="text-red-500"
+        >
+          Salary is Required
+        </small>
+
+        <small
+          *ngIf="employeeForm.get('salary')?.errors?.['min']"
+          class="text-red-500"
+        >
+          Minimum salary is 1000
+        </small>
+
+      </div>
+
     </div>
 
-    
+    <!-- Joining Date -->
 
     <div>
 
@@ -136,9 +237,20 @@
         class="w-full bg-white/10 border border-white/20 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
       />
 
+      <div *ngIf="employeeForm.get('joiningDate')?.invalid && employeeForm.get('joiningDate')?.touched">
+
+        <small
+          *ngIf="employeeForm.get('joiningDate')?.errors?.['required']"
+          class="text-red-500"
+        >
+          Joining Date is Required
+        </small>
+
+      </div>
+
     </div>
 
-   
+    <!-- Address -->
 
     <div class="md:col-span-2">
 
@@ -153,15 +265,34 @@
         class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
       ></textarea>
 
+      <div *ngIf="employeeForm.get('address')?.invalid && employeeForm.get('address')?.touched">
+
+        <small
+          *ngIf="employeeForm.get('address')?.errors?.['required']"
+          class="text-red-500"
+        >
+          Address is Required
+        </small>
+
+        <small
+          *ngIf="employeeForm.get('address')?.errors?.['minlength']"
+          class="text-red-500"
+        >
+          Minimum 5 characters required
+        </small>
+
+      </div>
+
     </div>
 
-
+    <!-- Button -->
 
     <div class="col-span-1 md:col-span-2">
 
       <button
         type="submit"
-        class="w-full bg-indigo-500 text-white py-3 rounded-xl font-semibold hover:bg-indigo-400"
+        [disabled]="employeeForm.invalid"
+        class="w-full bg-indigo-500 text-white py-3 rounded-xl font-semibold hover:bg-indigo-400 disabled:bg-gray-500 disabled:cursor-not-allowed"
       >
 
         {{ employeeId ? 'Update Employee' : 'Add Employee' }}
