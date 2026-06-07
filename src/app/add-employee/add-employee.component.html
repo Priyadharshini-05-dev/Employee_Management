@@ -1,101 +1,175 @@
-<div class="flex justify-center items-center min-h-screen bg-blue-400 p-6">
+<div class="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-950 via-indigo-900 to-slate-900 p-6">
+
   <form
-  [formGroup]="employeeForm"
-  class="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-10 grid grid-cols-2 gap-6"
-  (ngSubmit)="onSubmit()"
->
-<div class="col-span-2 text-center mb-4">
-  <h2 class="text-3xl font-bold text-slate-800">
-    Employee Registration
-  </h2>
-  
-</div>
-  <div>
-    <label class="block mb-2 font-medium">Name</label>
-    <input
-      type="text"
-      formControlName="name"
-      placeholder="Enter employee name"
-      class="w-full border rounded-lg px-4 py-2"
-    />
-  </div>
-
-  <div>
-    <label class="block mb-2 font-medium">Email</label>
-    <input
-      type="email"
-      formControlName="email"
-      placeholder="Enter email"
-      class="w-full border rounded-lg px-4 py-2"
-    />
-  </div>
-
-  <div>
-    <label class="block mb-2 font-medium">Phone</label>
-    <input
-      type="text"
-      formControlName="phone"
-      placeholder="Enter phone"
-      class="w-full border rounded-lg px-4 py-2"
-    />
-  </div>
-
-  <div>
-    <label class="block mb-2 font-medium">Department</label>
-    <input
-      type="text"
-      formControlName="department"
-      placeholder="Enter department"
-      class="w-full border rounded-lg px-4 py-2"
-    />
-  </div>
-
-  <div>
-    <label class="block mb-2 font-medium">Designation</label>
-    <input
-      type="text"
-      formControlName="designation"
-      placeholder="Enter designation"
-      class="w-full border rounded-lg px-4 py-2"
-    />
-  </div>
-
-  <div>
-    <label class="block mb-2 font-medium">Salary</label>
-    <input
-      type="number"
-      formControlName="salary"
-      placeholder="Enter salary"
-      class="w-full border rounded-lg px-4 py-2"
-    />
-  </div>
-
-  <div>
-    <label class="block mb-2 font-medium">Joining Date</label>
-    <input
-      type="date"
-      formControlName="joiningDate"
-      class="w-full border rounded-lg px-4 py-2"
-    />
-  </div>
-
-  <div class="md:col-span-2">
-    <label class="block mb-2 font-medium">Address</label>
-    <textarea
-      rows="4"
-      formControlName="address"
-      placeholder="Enter address"
-      class="w-full border rounded-lg px-4 py-2"
-    ></textarea>
-  </div>
-
-  <div class="col-span-2">
-   <button
-  type="submit"
-  class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-bold"
+    [formGroup]="employeeForm"
+    (ngSubmit)="onSubmit()"
+    class="w-full max-w-4xl bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-8 grid grid-cols-1 lg:grid-cols-2 gap-5"
   >
-  {{ employeeId ? 'Update Employee' : 'Add Employee' }}
-</button>
-  </div>
-</form>
+
+   
+
+    <div class="col-span-1 md:col-span-2 text-center mb-4">
+
+      <h2 class="text-4xl font-bold text-white">
+        Employee Registration
+      </h2>
+
+      <p class="text-blue-200 mt-2">
+        Add and manage employee information
+      </p>
+
+    </div>
+
+  
+
+    <div>
+
+      <label class="block mb-2 font-medium text-blue-100">
+        Name
+      </label>
+
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Enter employee name"
+        class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
+      />
+
+    </div>
+
+  
+
+    <div>
+
+      <label class="block mb-2 font-medium text-blue-100">
+        Email
+      </label>
+
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Enter email"
+        class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
+      />
+
+    </div>
+
+  
+
+    <div>
+
+      <label class="block mb-2 font-medium text-blue-100">
+        Phone
+      </label>
+
+      <input
+        type="text"
+        formControlName="phone"
+        placeholder="Enter phone"
+        class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
+      />
+
+    </div>
+
+ 
+
+    <div>
+
+      <label class="block mb-2 font-medium text-blue-100">
+        Department
+      </label>
+
+      <input
+        type="text"
+        formControlName="department"
+        placeholder="Enter department"
+        class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
+      />
+
+    </div>
+
+
+
+    <div>
+
+      <label class="block mb-2 font-medium text-blue-100">
+        Designation
+      </label>
+
+      <input
+        type="text"
+        formControlName="designation"
+        placeholder="Enter designation"
+        class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
+      />
+
+    </div>
+
+    
+
+    <div>
+
+      <label class="block mb-2 font-medium text-blue-100">
+        Salary
+      </label>
+
+      <input
+        type="number"
+        formControlName="salary"
+        placeholder="Enter salary"
+        class="w-full bg-white/10 border border-white/20 text-emerald-300 placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
+      />
+
+    </div>
+
+    
+
+    <div>
+
+      <label class="block mb-2 font-medium text-blue-100">
+        Joining Date
+      </label>
+
+      <input
+        type="date"
+        formControlName="joiningDate"
+        class="w-full bg-white/10 border border-white/20 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
+      />
+
+    </div>
+
+   
+
+    <div class="md:col-span-2">
+
+      <label class="block mb-2 font-medium text-blue-100">
+        Address
+      </label>
+
+      <textarea
+        rows="4"
+        formControlName="address"
+        placeholder="Enter address"
+        class="w-full bg-white/10 border border-white/20 text-white placeholder:text-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400"
+      ></textarea>
+
+    </div>
+
+
+
+    <div class="col-span-1 md:col-span-2">
+
+      <button
+        type="submit"
+        class="w-full bg-indigo-500 text-white py-3 rounded-xl font-semibold hover:bg-indigo-400"
+      >
+
+        {{ employeeId ? 'Update Employee' : 'Add Employee' }}
+
+      </button>
+
+    </div>
+
+  </form>
+
 </div>

@@ -1,26 +1,142 @@
-<div class="flex justify-center items-center h-screen bg-sky-800">
+<div class="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-950 via-indigo-900 to-slate-900 p-6">
+
   <div
     *ngIf="employee"
-    class="w-80 p-8 rounded-2xl bg-white/20 backdrop-blur-lg border border-white/30 shadow-2xl text-white"
+    class="w-full max-w-xl bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-8 text-white"
   >
-    <h2 class="mb-5 text-center text-2xl font-extrabold">Employee Details</h2>
 
-    <div class="flex flex-col gap-5">
-      <p><strong>Name:</strong> {{ employee.name }}</p>
+  
 
-      <p><strong>Email:</strong> {{ employee.email }}</p>
+    <div class="text-center mb-8">
 
-      <p><strong>Phone:</strong> {{ employee.phone }}</p>
+      <h2 class="text-4xl font-bold text-white">
+        Employee Details
+      </h2>
 
-      <p><strong>Department:</strong> {{ employee.department }}</p>
+      <p class="text-blue-200 mt-2">
+        Employee information overview
+      </p>
 
-      <p><strong>Designation:</strong> {{ employee.designation }}</p>
-
-      <p><strong>Salary:</strong> {{ employee.salary }}</p>
-
-      <p><strong>Joining Date:</strong> {{ employee.joiningDate }}</p>
-
-      <p><strong>Address:</strong> {{ employee.address }}</p>
     </div>
+
+  
+
+    <div class="space-y-5">
+
+   
+
+      <div class="flex justify-between items-center border-b border-white/10 pb-3">
+
+        <span class="text-blue-200 font-medium">
+          Name
+        </span>
+
+        <span class="text-white font-semibold">
+          {{ employee.name }}
+        </span>
+
+      </div>
+
+
+
+      <div class="flex justify-between items-center border-b border-white/10 pb-3">
+
+        <span class="text-blue-200 font-medium">
+          Email
+        </span>
+
+        <span class="text-gray-200">
+          {{ employee.email }}
+        </span>
+
+      </div>
+
+     
+
+      <div class="flex justify-between items-center border-b border-white/10 pb-3">
+
+        <span class="text-blue-200 font-medium">
+          Phone
+        </span>
+
+        <span class="text-gray-200">
+          {{ employee.phone }}
+        </span>
+
+      </div>
+
+  
+
+      <div class="flex justify-between items-center border-b border-white/10 pb-3">
+
+        <span class="text-blue-200 font-medium">
+          Department
+        </span>
+
+        <span class="text-sky-200 font-medium">
+          {{ employee.department }}
+        </span>
+
+      </div>
+
+
+
+      <div class="flex justify-between items-center border-b border-white/10 pb-3">
+
+        <span class="text-blue-200 font-medium">
+          Designation
+        </span>
+
+        <span class="text-indigo-200 font-medium">
+          {{ employee.designation }}
+        </span>
+
+      </div>
+
+    
+
+      <div class="flex justify-between items-center border-b border-white/10 pb-3">
+
+        <span class="text-blue-200 font-medium">
+          Salary
+        </span>
+
+        <span class="text-emerald-300 font-semibold">
+          {{ employee.salary | currency:'INR' }}
+        </span>
+
+      </div>
+
+
+
+      <div class="flex justify-between items-center border-b border-white/10 pb-3">
+
+        <span class="text-blue-200 font-medium">
+          Joining Date
+        </span>
+
+        <span class="text-gray-300">
+          {{ employee.joiningDate | date:'dd MMM yyyy' }}
+        </span>
+
+      </div>
+
+
+
+      <div class="flex justify-between items-start gap-5">
+
+        <span class="text-blue-200 font-medium">
+          Address
+        </span>
+
+        <span class="text-gray-200 text-right">
+          {{ employee.address }}
+        </span>
+
+      </div>
+
+    </div>
+
   </div>
+
 </div>

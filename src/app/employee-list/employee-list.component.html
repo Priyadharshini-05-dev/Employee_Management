@@ -1,76 +1,163 @@
-<div class="max-w-7xl mx-auto mt-8 p-6">
+<div class="min-h-screen bg-gradient-to-br from-blue-950 via-indigo-900 to-slate-900 py-10">
 
-  <div class="flex justify-between items-center mb-6">
-    <h1 class="text-3xl font-bold">Employee List</h1>
+  <div class="max-w-7xl mx-auto px-6">
 
-    <button
-      class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-      routerLink="/add-employee">
-      Add Employee
-    </button>
-  </div>
+  
 
-  <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+    <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
 
-    <table class="w-full">
+      <div>
 
-      <thead class="bg-gray-100">
-        <tr>
-          <th class="p-4 text-left">ID</th>
-          <th class="p-4 text-left">Name</th>
-          <th class="p-4 text-left">Email</th>
-          <th class="p-4 text-left">Phone</th>
-          <th class="p-4 text-left">Department</th>
-          <th class="p-4 text-left">Designation</th>
-          <th class="p-4 text-left">Salary</th>
-          <th class="p-4 text-left">Joining Date</th>
-          <th class="p-4 text-center">Actions</th>
-        </tr>
-      </thead>
+        <h1 class="text-4xl font-bold text-white">
+          Employee List
+        </h1>
 
-      <tbody>
+        <p class="text-blue-200 mt-1">
+          Manage employee details and records
+        </p>
 
-        <tr
-          *ngFor="let employee of employees"
-          class="border-b hover:bg-gray-50">
+      </div>
 
-          <td class="p-4">{{ employee.id }}</td>
-          <td class="p-4">{{ employee.name }}</td>
-          <td class="p-4">{{ employee.email }}</td>
-          <td class="p-4">{{ employee.phone }}</td>
-          <td class="p-4">{{ employee.department }}</td>
-          <td class="p-4">{{ employee.designation }}</td>
-          <td class="p-4">{{ employee.salary }}</td>
-          <td class="p-4">{{ employee.joiningDate }}</td>
 
-          <td class="p-4">
-            <div class="flex gap-2 justify-center">
 
-              <button
-              (click)="view(employee.id!)"
-                class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
-                View
-              </button>
+      <button
+        routerLink="/add-employee"
+        class="bg-indigo-500 text-white px-5 py-2 rounded-xl font-semibold hover:bg-indigo-400">
 
-              <button
-                class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600" (click)="Edit(employee.id!)">
-                Edit
-              </button>
+        Add Employee
 
-              <button
-              (click)="deleteEmployee(employee.id!)"
-                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600" >
-                Delete
-              </button>
+      </button>
 
-            </div>
-          </td>
+    </div>
 
-        </tr>
 
-      </tbody>
+    <div class="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
 
-    </table>
+      <div class="overflow-x-auto">
+
+        <table class="w-full text-sm text-left">
+
+        
+
+          <thead class="bg-white/10 text-blue-100 uppercase text-xs">
+
+            <tr>
+
+              <th class="p-5">ID</th>
+              <th class="p-5">Name</th>
+              <th class="p-5">Email</th>
+              <th class="p-5">Phone</th>
+              <th class="p-5">Department</th>
+              <th class="p-5">Designation</th>
+              <th class="p-5">Salary</th>
+              <th class="p-5">Joining Date</th>
+              <th class="p-5 text-center">Actions</th>
+
+            </tr>
+
+          </thead>
+
+      
+
+          <tbody>
+
+            <tr
+              *ngFor="let employee of employees || []"
+              class="border-b border-white/10 text-gray-200 hover:bg-white/5">
+
+            
+
+              <td class="p-5 text-blue-200 font-semibold">
+                #{{ employee.id }}
+              </td>
+
+
+              <td class="p-5 text-white font-medium">
+                {{ employee.name }}
+              </td>
+
+             
+              <td class="p-5 text-blue-100">
+                {{ employee.email }}
+              </td>
+
+
+              <td class="p-5">
+                {{ employee.phone }}
+              </td>
+
+           
+
+              <td class="p-5 text-sky-200">
+                {{ employee.department }}
+              </td>
+
+            
+
+              <td class="p-5 text-indigo-200">
+                {{ employee.designation }}
+              </td>
+
+       
+
+              <td class="p-5 text-emerald-300 font-semibold">
+                {{ employee.salary | currency:'INR' }}
+              </td>
+
+         
+
+              <td class="p-5 text-gray-300">
+                {{ employee.joiningDate | date:'dd MMM yyyy' }}
+              </td>
+
+             
+
+              <td class="p-5">
+
+                <div class="flex gap-2 justify-center">
+
+
+                  <button
+                    (click)="view(employee.id!)"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-400">
+
+                    View
+
+                  </button>
+
+                 
+
+                  <button
+                    (click)="Edit(employee.id!)"
+                    class="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-400">
+
+                    Edit
+
+                  </button>
+
+               
+
+                  <button
+                    (click)="deleteEmployee(employee.id!)"
+                    class="bg-rose-500 text-white px-4 py-2 rounded-lg hover:bg-rose-400">
+
+                    Delete
+
+                  </button>
+
+                </div>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
 
   </div>
 

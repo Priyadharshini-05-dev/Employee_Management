@@ -6,7 +6,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeeViewComponent } from './employee-view/employee-view.component';
 
 const routes: Routes = [
-  {path:"",component:DashboardComponent},
+  {path:"",component:EmployeeListComponent},
   {path:"employee",component:EmployeeListComponent},
   {path:"add-employee",component:AddEmployeeComponent},
   {path:"add-employee/:id",component:AddEmployeeComponent},
