@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
 import { Employee } from '../services/employee.service';
 import { Router } from '@angular/router';
+import { error } from 'console';
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class EmployeeListComponent implements OnInit {
 employees:Employee[]=[];
+loading:boolean=false;
   constructor(private employeeService:EmployeeService,
     private router:Router
   ) { }
@@ -16,11 +18,19 @@ employees:Employee[]=[];
   ngOnInit(): void {
    this.loadEmployees();
   }
-  loadEmployees(){
-     this.employeeService.getAllEmployees().subscribe((val)=>{
-      this.employees=val;
-    })
+ loadEmployees(){
+  this.loading=true;
+  this.employeeService.getAllEmployees().subscribe({
+  next: (val) => {
+    this.employees = val;
+    this.loading = false;
+  },
+  error: (err) => {
+    console.log(err);
+    this.loading = false;
   }
+});
+ }
   deleteEmployee(id:number){
     this.employeeService.deleteEmployee(id).subscribe(()=>{
 this.loadEmployees();
