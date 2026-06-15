@@ -11,7 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeViewComponent } from './employee-view/employee-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

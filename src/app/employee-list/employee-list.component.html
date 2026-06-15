@@ -3,12 +3,11 @@
   <div class="max-w-7xl mx-auto px-6">
 
   
-
     <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
 
       <div>
 
-        <h1 class="text-4xl font-bold text-white">
+        <h1 class="text-4xl md:text-5xl  font-extrabold text-white text-center md:text-left">
           Employee List
         </h1>
 
@@ -20,14 +19,24 @@
 
 
 
-      <button
-        routerLink="/add-employee"
-        class="bg-indigo-500 text-white px-5 py-2 rounded-xl font-semibold hover:bg-indigo-400">
+   <div class="flex items-center gap-3">
 
-        Add Employee
+    <input
+      type="text"
+      [(ngModel)]="search"
+      (input)="searchEmployee()"
+      placeholder="Search employee..."
+      class="w-72 px-4 py-2 rounded-xl border border-white/20 bg-white/10 text-white placeholder-gray-300">
 
-      </button>
+    <button
+      routerLink="/add-employee"
+      class="bg-indigo-500 text-white px-5 py-2 rounded-xl font-semibold hover:bg-indigo-400">
 
+      Add Employee
+
+    </button>
+
+  </div>
     </div>
 
 

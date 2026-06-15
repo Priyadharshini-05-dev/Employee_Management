@@ -41,4 +41,7 @@ export class EmployeeService {
   deleteEmployee(id: number) {
     return this.http.delete(`${this.apiUrl}/delete/${id}`);
   }
+  searchEmployee(keyword:string){
+    return this.http.get<Employee[]>(`${this.apiUrl}/search?keyword=${keyword}`)
+  }
 }

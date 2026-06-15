@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-employee',
@@ -24,9 +25,11 @@ export class AddEmployeeComponent implements OnInit {
     private employeeService: EmployeeService,
     private router: Router,
     private route: ActivatedRoute,
+    private snackBar:MatSnackBar
   ) {}
   employeeForm!: FormGroup;
   ngOnInit(): void {
+    
     this.employeeForm = new FormGroup({
       name: new FormControl('', [
         Validators.required,
@@ -71,16 +74,44 @@ export class AddEmployeeComponent implements OnInit {
       this.employeeService
         .updateEmployee(this.employeeId, this.employeeForm.value)
         .subscribe(() => {
-          alert('Update Successfully');
-          this.router.navigate(['/employee']);
+          this.snackBar.open(
+            'Employee Updated Successfully',
+            'Close',{
+              duration:3000
+            }
+          );
+             this.snackBar.open(
+      'Employee Added Successfully',
+      'Close',
+      {
+        duration: 3000
+      }
+    );
+    
         });
+        setTimeout(()=>{
+          this.router.navigate(['/employee']);
+
+          },3000)
+        
     } else {
       this.employeeService
         .addEmployee(this.employeeForm.value)
         .subscribe((res) => {
           console.log(res);
-          // this.employeeForm.reset();
+             this.snackBar.open(
+      'Employee Added Successfully',
+      'Close',
+      {
+        duration: 3000
+      }
+    );
+          this.employeeForm.reset();
+
+          setTimeout(()=>{
           this.router.navigate(['/employee']);
+
+          },3000)
         });
     }
   }
