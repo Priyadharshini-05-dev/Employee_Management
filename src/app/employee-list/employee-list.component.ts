@@ -13,6 +13,11 @@ employees:Employee[]=[];
 loading:boolean=false;
 
 search:string="";
+
+
+page=0;
+size=5;
+totalPages=0;
   constructor(private employeeService:EmployeeService,
     private router:Router,
     private snackBar:MatSnackBar
@@ -23,9 +28,10 @@ search:string="";
   }
  loadEmployees(){
   this.loading=true;
-  this.employeeService.getAllEmployees().subscribe({
-  next: (val) => {
-    this.employees = val;
+  this.employeeService.getEmployees(this.page,this.size).subscribe({
+  next: (res) => {
+    this.employees = res.content;
+    this.totalPages=res.totalPages;
     this.loading = false;
   },
   error: (err) => {
@@ -34,7 +40,28 @@ search:string="";
   }
 });
  }
+ previousPage(){
 
+if(this.page>0){
+
+this.page--;
+
+this.loadEmployees();
+
+}
+
+}
+nextPage(){
+
+if(this.page<this.totalPages-1){
+
+this.page++;
+
+this.loadEmployees();
+
+}
+
+}
  searchEmployee(){
   if(this.search.trim()==""){
     this.loadEmployees();

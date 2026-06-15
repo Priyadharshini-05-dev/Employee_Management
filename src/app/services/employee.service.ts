@@ -44,4 +44,9 @@ export class EmployeeService {
   searchEmployee(keyword:string){
     return this.http.get<Employee[]>(`${this.apiUrl}/search?keyword=${keyword}`)
   }
+ getEmployees(page:number,size:number){
+  return this.http.get<any>(
+    `${this.apiUrl}/pagination?page=${page}&size=${size}`
+  );
+}
 }

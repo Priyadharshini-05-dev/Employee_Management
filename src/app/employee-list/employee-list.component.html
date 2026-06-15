@@ -26,11 +26,11 @@
       [(ngModel)]="search"
       (input)="searchEmployee()"
       placeholder="Search employee..."
-      class="w-72 px-4 py-2 rounded-xl border border-white/20 bg-white/10 text-white placeholder-gray-300">
+      class= " w-full sm:w-72  px-4 py-2 rounded-xl border border-white/20 bg-white/10 text-white placeholder-gray-300">
 
     <button
       routerLink="/add-employee"
-      class="bg-indigo-500 text-white px-5 py-2 rounded-xl font-semibold hover:bg-indigo-400">
+      class="bg-indigo-500 text-white w-full sm:w-auto px-5 py-2 rounded-xl font-semibold hover:bg-indigo-400">
 
       Add Employee
 
@@ -48,7 +48,7 @@
   Loading employees...
 </div>
 
-        <table class="w-full text-sm text-left" *ngIf="!loading">
+        <table class="min-w-[1000px] w-full text-sm text-left" *ngIf="!loading">
 
         
 
@@ -80,54 +80,54 @@
 
             
 
-              <td class="p-5 text-blue-200 font-semibold">
+              <td class="p-5 sm:p-5 text-blue-200 font-semibold">
                 #{{ employee.id }}
               </td>
 
 
-              <td class="p-5 text-white font-medium">
+              <td class="p-5 sm:p-5 text-white font-medium">
                 {{ employee.name }}
               </td>
 
              
-              <td class="p-5 text-blue-100">
+              <td class="p-5 sm:p-5 text-blue-100">
                 {{ employee.email }}
               </td>
 
 
-              <td class="p-5">
+              <td class="p-5 sm:p-5">
                 {{ employee.phone }}
               </td>
 
            
 
-              <td class="p-5 text-sky-200">
+              <td class="p-5 sm:p-5 text-sky-200">
                 {{ employee.department }}
               </td>
 
             
 
-              <td class="p-5 text-indigo-200">
+              <td class="p-5 sm:p-5 text-indigo-200">
                 {{ employee.designation }}
               </td>
 
        
 
-              <td class="p-5 text-emerald-300 font-semibold">
+              <td class="p-5 sm:p-5 text-emerald-300 font-semibold">
                 {{ employee.salary | currency:'INR' }}
               </td>
 
          
 
-              <td class="p-5 text-gray-300">
+              <td class="p-5 sm:p-5 text-gray-300">
                 {{ employee.joiningDate | date:'dd MMM yyyy' }}
               </td>
 
              
 
-              <td class="p-5">
+              <td class="p-5 sm:p-5">
 
-                <div class="flex gap-2 justify-center">
+                <div class="flex  gap-2 justify-center">
 
 
                   <button
@@ -171,7 +171,33 @@
       </div>
 
     </div>
+<div class="flex justify-center items-center gap-4 mt-6">
 
+<button
+(click)="previousPage()"
+[disabled]="page==0"
+class="bg-indigo-500 text-white w-full sm:w-auto px-5 py-2 rounded-xl font-semibold hover:bg-indigo-400">
+
+Previous
+
+</button>
+
+<span class="text-white font-semibold">
+
+{{page+1}} of {{totalPages}}
+
+</span>
+
+<button
+(click)="nextPage()"
+[disabled]="page>=totalPages-1"
+class="bg-indigo-500 text-white w-full sm:w-auto px-5 py-2 rounded-xl font-semibold hover:bg-indigo-400">
+
+Next
+
+</button>
+
+</div>
   </div>
 
 </div>

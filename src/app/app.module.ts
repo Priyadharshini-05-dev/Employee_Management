@@ -13,13 +13,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     AddEmployeeComponent,
     EmployeeListComponent,
-    EmployeeViewComponent
+    EmployeeViewComponent,
+    SidebarComponent,
+    AdminLayoutComponent
 
   ],
   imports: [
@@ -30,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
